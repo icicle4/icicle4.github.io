@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="深度学习," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="[TOC] 梯度下降算法基本算法虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。">
+<meta name="description" content="梯度下降算法基本算法虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。  SGD算法">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="s">
+<meta property="og:title" content="深度学习中的梯度下降算法">
 <meta property="og:url" content="http://icicle314.xyz/2018/06/18/深度学习中的梯度下降算法/index.html">
 <meta property="og:site_name" content="呓语">
-<meta property="og:description" content="[TOC] 梯度下降算法基本算法虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。">
+<meta property="og:description" content="梯度下降算法基本算法虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。  SGD算法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-18T13:16:20.266Z">
+<meta property="og:updated_time" content="2018-06-18T13:19:44.234Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="s">
-<meta name="twitter:description" content="[TOC] 梯度下降算法基本算法虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。">
+<meta name="twitter:title" content="深度学习中的梯度下降算法">
+<meta name="twitter:description" content="梯度下降算法基本算法虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。  SGD算法">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title>s | 呓语</title>
+  <title>深度学习中的梯度下降算法 | 呓语</title>
   
 
 
@@ -261,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">s</h1>
+          <h1 class="post-title" itemprop="name headline">深度学习中的梯度下降算法</h1>
         
 
         <div class="post-meta">
@@ -311,8 +312,7 @@
       
 
       
-        <p>[TOC]</p>
-<h1 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h1><h2 id="基本算法"><a href="#基本算法" class="headerlink" title="基本算法"></a>基本算法</h2><p>虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。 </p>
+        <h1 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h1><h2 id="基本算法"><a href="#基本算法" class="headerlink" title="基本算法"></a>基本算法</h2><p>虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。 </p>
 <h3 id="SGD"><a href="#SGD" class="headerlink" title="SGD"></a>SGD</h3><p><strong>算法 8.1</strong> 随机梯度下降(SGD)在第 k 个训练迭代的更新 </p>
 <p><strong>Require:</strong> 学习率 $εk$<br> <strong>Require:</strong> 初始参数 $θ$ </p>
 <p>​      <strong>while</strong> 停止准则未满足 <strong>do</strong><br>         从训练集中采包含 $m$ 个样本 {$\mathbf x^{(1)},…,\mathbf x^{(m)}$} 的小批量，其中 $\mathbf x^{(i)}$ 对应目标为 $\mathbf y(i)$。</p>
@@ -409,6 +409,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+        </div>
       
 
       
@@ -517,7 +523,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
