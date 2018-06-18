@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="写点东西给自己看">
-<meta property="og:type" content="website">
-<meta property="og:title" content="呓语">
-<meta property="og:url" content="http://icicle314.xyz/index.html">
+<meta name="description" content="[TOC] 梯度下降算法基本算法虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="s">
+<meta property="og:url" content="http://icicle314.xyz/2018/06/18/深度学习中的梯度下降算法/index.html">
 <meta property="og:site_name" content="呓语">
-<meta property="og:description" content="写点东西给自己看">
+<meta property="og:description" content="[TOC] 梯度下降算法基本算法虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-18T13:16:20.266Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="呓语">
-<meta name="twitter:description" content="写点东西给自己看">
+<meta name="twitter:title" content="s">
+<meta name="twitter:description" content="[TOC] 梯度下降算法基本算法虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://icicle314.xyz/"/>
+  <link rel="canonical" href="http://icicle314.xyz/2018/06/18/深度学习中的梯度下降算法/"/>
 
 
 
 
 
-  <title>呓语</title>
+  <title>s | 呓语</title>
   
 
 
@@ -145,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -229,9 +229,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -261,9 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/18/深度学习中的梯度下降算法/" itemprop="url">s</a></h1>
+          <h1 class="post-title" itemprop="name headline">s</h1>
         
 
         <div class="post-meta">
@@ -313,9 +311,7 @@
       
 
       
-        
-          
-            <p>[TOC]</p>
+        <p>[TOC]</p>
 <h1 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h1><h2 id="基本算法"><a href="#基本算法" class="headerlink" title="基本算法"></a>基本算法</h2><p>虽然结果表明，具有自适应学习率(以 RMSProp 和 AdaDelta 为代表)的算法族表现得相当鲁棒，不分伯仲，但没有哪个算法能脱颖而出。 目前，最流行并且使用很高的优化算法包括 SGD、具动量的 SGD、RMSProp、 具动量的 RMSProp、AdaDelta 和 Adam。此时，选择哪一个算法似乎主要取决于 使用者对算法的熟悉程度(以便调节超参数)。 </p>
 <h3 id="SGD"><a href="#SGD" class="headerlink" title="SGD"></a>SGD</h3><p><strong>算法 8.1</strong> 随机梯度下降(SGD)在第 k 个训练迭代的更新 </p>
 <p><strong>Require:</strong> 学习率 $εk$<br> <strong>Require:</strong> 初始参数 $θ$ </p>
@@ -400,8 +396,6 @@
 <p> 计算更新:$\Delta\theta = −H^{-1}g $</p>
 <p> 应用更新:$\theta = \theta + \Delta\theta </p>
 
-          
-        
       
     </div>
     
@@ -418,136 +412,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://icicle314.xyz/2018/03/21/关于游戏的杂感/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ICICLE">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="呓语">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/21/关于游戏的杂感/" itemprop="url">关于游戏的杂感</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-21T18:14:15+08:00">
-                2018-03-21
-              </time>
+              <a href="/2018/03/21/关于游戏的杂感/" rel="next" title="关于游戏的杂感">
+                <i class="fa fa-chevron-left"></i> 关于游戏的杂感
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>​    群里因为两会十名人大代表联名提议抵制游戏炸锅了，作为一个游戏群，可想而知这一提议必然被称为可笑和固步自封的。雷电法王，网瘾战争一再被提及。“不懂教育，甩锅游戏”的论调不绝于耳。“他们根本不是合格的父母”的声音也是不少。但是，就我的所见所闻所感所受，告诉我，似乎他们的步子太大了一点。</p>
-<p>​    就我个人所想，这些代表的提议肯定是难以通过的。因为游戏已经获得了他们最初的信徒，这些信徒虽然笃信程度不同，但他们都会为游戏发声。政府想要封禁也是不现实的，毕竟游戏不像真正的毒品，见效如此之快。随着时间的演进，政府也成了游戏的信徒，那么游戏便成为了胜者。人必然是屈服于欲望的。只要给人一个借口，人能向欲望无限屈服。别的不说，看看日本女优的现状便可以知道了。人的堕落是没有下限的。</p>
-<p>​    但是现在的游戏真的是什么好东西么？我想手游肯定不是。它蚕食了他们的时间。那些本来应该留给书籍、视频（快手、抖音之流真的与手游之害无异）、外出、亲情的时间杀的一干二净。他们屈服于自己的原始欲望和一些微不足道的成就感。而这必然会导致全社会的人口素质下降。</p>
-<p>​    所以我想国家的介入不是坏事。毕竟个人是很难战胜游戏的。因为它就是为了吸引你而生的，它比你更了解你自己。只有一个压迫者存在的情况下，游戏才能健康的成长。否则游戏只会取媚于最广大的一群人，而那群人必然是最低俗的。</p>
-<p>​    撸管固然很爽，游戏也是如此。但若是一个社会都撸管，真的不是一件好事。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -557,395 +443,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://icicle314.xyz/2018/03/13/Kotlin中的lazy属性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ICICLE">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="呓语">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/13/Kotlin中的lazy属性/" itemprop="url">Kotlin中的lazy属性</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T19:55:27+08:00">
-                2018-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>学习Kotlin Koans时遇到了一个问题，如下</p>
-<blockquote>
-<p>Lazy property</p>
-<p><em>Add a custom getter to make the ‘lazy’ val really lazy. It should be initialized by the invocation of ‘initializer()’ at the moment of the first access.</em></p>
-<p><em>You can add as many additional properties as you need.</em></p>
-<p><em>Do not use delegated properties!</em></p>
-</blockquote>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LazyProperty</span></span>(<span class="keyword">val</span> initializer: () -&gt; <span class="built_in">Int</span>) &#123;</span><br><span class="line">     </span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> lazy: <span class="built_in">Int</span></span><br><span class="line">        <span class="keyword">get</span>() &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>语言基础太差，只能去抄答案。答案如下，还是看不懂。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LazyProperty</span></span>(<span class="keyword">val</span> initializer:()-&gt;<span class="built_in">Int</span>)&#123;</span><br><span class="line">    <span class="keyword">val</span> value:<span class="built_in">Int</span>?=<span class="literal">null</span></span><br><span class="line">    <span class="keyword">val</span> lazy:<span class="built_in">Int</span></span><br><span class="line">	    <span class="keyword">get</span>()&#123;</span><br><span class="line">            <span class="keyword">if</span>(value==<span class="literal">null</span>)&#123;</span><br><span class="line">                value=initializer()</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> value!!</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个其实是对Delegate中的延迟属性(lazy properties)的考察。</p>
-<p>所谓的延迟属性即为其值只会在首次访问时使用到的属性。所以上面的问题可以用下面的代码完成，当然暂时忽略其 <em>Do not use delegated properties!</em> 的要求。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class LazyProperty(val initializer: () -&gt; Int) &#123;</span><br><span class="line">    val lazyValue: Int by lazy(initializer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>让我们检查一下上面的代码，其中intializer具有<u>函数类型 () <a href="https://stackoverflow.com/questions/42646016/what-does-the-arrow-operator-do-in-kotlin/42646234" target="_blank" rel="noopener">-&gt;</a> Int</u></p>
-<p>所以，其应该是一个不带参数并且返回Int类型值的函数,同时又被LazyProperty类作为参数。由于lazy()是接受一个lambda并返回一个Lazy<t>实际例子的函数，返回的实例可以作为实现延迟属性的委托：第一次调用get()会执行已传递给lazy()的lambda表达式并记录结果，而后续调用get()只是返回记录的结果。</t></p>
-<p>再看一次答案</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LazyProperty</span></span>(<span class="keyword">val</span> initializer: () -&gt; <span class="built_in">Int</span>) &#123;</span><br><span class="line">     <span class="keyword">var</span> value:<span class="built_in">Int</span>? = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> lazy: <span class="built_in">Int</span></span><br><span class="line">        <span class="keyword">get</span>() &#123;</span><br><span class="line">            <span class="keyword">if</span> (value==<span class="literal">null</span>)&#123;</span><br><span class="line">                value = initializer()</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> value!!</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于 value 的初始值为 null，则 value=initializer() 得以执行，return value结合 get() 使 lazy 获得赋值。由于 value 类型为 Int? 而 lazy 为 Int ,所以需要用 <a href="https://www.kotlincn.net/docs/reference/null-safety.html#-%E6%93%8D%E4%BD%9C%E7%AC%A6" target="_blank" rel="noopener">!!</a> 做非空类型转换。而之后的value均为非空，lambda 不会再执行，从而实现了和 lazy() 一样的效果。</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://icicle314.xyz/2018/03/08/总要有第一次/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ICICLE">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="呓语">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/08/总要有第一次/" itemprop="url">总要有第一次</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-08T10:56:40+08:00">
-                2018-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>没什么好说的</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://icicle314.xyz/2017/10/28/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ICICLE">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="呓语">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T08:39:58+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -953,6 +455,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -973,8 +479,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1025,6 +540,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度下降算法"><span class="nav-number">1.</span> <span class="nav-text">梯度下降算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本算法"><span class="nav-number">1.1.</span> <span class="nav-text">基本算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SGD"><span class="nav-number">1.1.1.</span> <span class="nav-text">SGD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动量方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">动量方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nesterov-动量"><span class="nav-number">1.1.3.</span> <span class="nav-text">Nesterov 动量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自适应学习率算法"><span class="nav-number">1.2.</span> <span class="nav-text">自适应学习率算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AdaGrad"><span class="nav-number">1.2.1.</span> <span class="nav-text">AdaGrad</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RMSProp"><span class="nav-number">1.2.2.</span> <span class="nav-text">RMSProp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adam"><span class="nav-number">1.2.3.</span> <span class="nav-text">Adam</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adadelta"><span class="nav-number">1.2.4.</span> <span class="nav-text">Adadelta</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二阶近似方法"><span class="nav-number">1.3.</span> <span class="nav-text">二阶近似方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#牛顿法"><span class="nav-number">1.3.1.</span> <span class="nav-text">牛顿法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1158,6 +689,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
