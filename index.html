@@ -244,6 +244,146 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://icicle314.xyz/2018/07/06/Camera-calibration-with-OpenCV/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ICICLE">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="呓语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/06/Camera-calibration-with-OpenCV/" itemprop="url">Camera calibration with OpenCV</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T21:33:12+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>相机有两个因素会导致照片像素失真，分别是：radial factors 和 tangential factors。</p>
+<p>为了处理radial factors 采用下面公式为：</p>
+<p>$X_{corrected}=x(1+k_1r^2+k_2r^4+k_3r^6)$ </p>
+<p>$Y_{corrected} = y(1+k_1r^2+k_2r^4+k_3r^6)$</p>
+<p>这种情形体现为“桶状”和”鱼眼“变形。</p>
+<p>Tangential 扭曲发生在拍摄镜头没有正对成像平面，它可以通过下面的公式矫正：</p>
+<p>$x_{corrected}=x+[2p_1xy+p_2(r^2+2x^2)]$</p>
+<p>$y_{corrected}=y+[p_1(r^2+2y^2)+2p_2xy]$</p>
+<p>因此OpenCV提出了如下的失真参数矩阵</p>
+<p>$Distortion_{coefficients}=(k_1,k_2,p_1,p_2,k_3)$</p>
+<p>为了进行坐标转换，我们采用下面的公式</p>
+<p>$ \left[ \begin{matrix} x\\y \\w\end{matrix} \right] = \left[ \begin{matrix} f_x &amp; 0 &amp; c_x \\ 0 &amp; f_y &amp; c_y \\ 0 &amp; 0 &amp; 1 \end{matrix} \right]  \left[ \begin{matrix} X \\ Y \\ Z \end{matrix} \right] $</p>
+<p> w可由单向性坐标系统表示且w=Z，变量为焦距$f_x$和$f_y$和以像素坐标表示的光学中心。我们用$f_y=f_x*a$的a结合$f=f_x$取代$f_a$和$f_y$.包含$f,a,c_x,c_y$的矩阵称为相机矩阵。</p>
+<p>虽然无论使用何种相机分辨率，失真系数都是相同的，但应根据校准分辨率的当前分辨率进行缩放。</p>
+<p>因此校准的过程就是确定上面两个矩阵的过程，计算通过基本的几何运算进行。目前OpenCV支持3种物体用来校准：</p>
+<ul>
+<li>古典的黑白棋盘</li>
+<li>对称的圆</li>
+<li>不对称的圆</li>
+</ul>
+<p>更具体，见:<a href="https://docs.opencv.org/2.4/doc/tutorials/calib3d/camera_calibration/camera_calibration.html?" target="_blank" rel="noopener">https://docs.opencv.org/2.4/doc/tutorials/calib3d/camera_calibration/camera_calibration.html?</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://icicle314.xyz/2018/06/18/深度学习中的梯度下降算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -988,7 +1128,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
