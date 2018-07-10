@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Kotlin," />
+  <meta name="keywords" content="tracking," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="学习Kotlin Koans时遇到了一个问题，如下  Lazy property Add a custom getter to make the ‘lazy’ val really lazy. It should be initialized by the invocation of ‘initializer()’ at the moment of the first access. You ca">
-<meta name="keywords" content="Kotlin">
+<meta name="description" content="我们规定$m_i^t$ 为时间t位于位置i的物体数量，$f_{i,j}^t$表示时间t时位于位置i，时间t+1时位于位置j的物体数,。根据该定义： $\forall_{t,j} \sum\limits_{i:j\in N(i)}=m_j^t=\sum\limits_{k\in N(j)}f_{j,k}^t $ 对于一般的问题，我们可以做一些假设，例如我们不允许同一个地点存在两个物体。根据这个假设，">
+<meta name="keywords" content="tracking">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin中的lazy属性">
-<meta property="og:url" content="http://icicle314.xyz/2018/03/13/Kotlin中的lazy属性/index.html">
+<meta property="og:title" content="轨迹追踪问题的可行解">
+<meta property="og:url" content="http://icicle314.xyz/2018/07/10/轨迹追踪问题的可行解/index.html">
 <meta property="og:site_name" content="呓语">
-<meta property="og:description" content="学习Kotlin Koans时遇到了一个问题，如下  Lazy property Add a custom getter to make the ‘lazy’ val really lazy. It should be initialized by the invocation of ‘initializer()’ at the moment of the first access. You ca">
+<meta property="og:description" content="我们规定$m_i^t$ 为时间t位于位置i的物体数量，$f_{i,j}^t$表示时间t时位于位置i，时间t+1时位于位置j的物体数,。根据该定义： $\forall_{t,j} \sum\limits_{i:j\in N(i)}=m_j^t=\sum\limits_{k\in N(j)}f_{j,k}^t $ 对于一般的问题，我们可以做一些假设，例如我们不允许同一个地点存在两个物体。根据这个假设，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-14T01:17:31.068Z">
+<meta property="og:updated_time" content="2018-07-10T07:50:30.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin中的lazy属性">
-<meta name="twitter:description" content="学习Kotlin Koans时遇到了一个问题，如下  Lazy property Add a custom getter to make the ‘lazy’ val really lazy. It should be initialized by the invocation of ‘initializer()’ at the moment of the first access. You ca">
+<meta name="twitter:title" content="轨迹追踪问题的可行解">
+<meta name="twitter:description" content="我们规定$m_i^t$ 为时间t位于位置i的物体数量，$f_{i,j}^t$表示时间t时位于位置i，时间t+1时位于位置j的物体数,。根据该定义： $\forall_{t,j} \sum\limits_{i:j\in N(i)}=m_j^t=\sum\limits_{k\in N(j)}f_{j,k}^t $ 对于一般的问题，我们可以做一些假设，例如我们不允许同一个地点存在两个物体。根据这个假设，">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://icicle314.xyz/2018/03/13/Kotlin中的lazy属性/"/>
+  <link rel="canonical" href="http://icicle314.xyz/2018/07/10/轨迹追踪问题的可行解/"/>
 
 
 
 
 
-  <title>Kotlin中的lazy属性 | 呓语</title>
+  <title>轨迹追踪问题的可行解 | 呓语</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://icicle314.xyz/2018/03/13/Kotlin中的lazy属性/">
+    <link itemprop="mainEntityOfPage" href="http://icicle314.xyz/2018/07/10/轨迹追踪问题的可行解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ICICLE">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kotlin中的lazy属性</h1>
+          <h1 class="post-title" itemprop="name headline">轨迹追踪问题的可行解</h1>
         
 
         <div class="post-meta">
@@ -274,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T19:55:27+08:00">
-                2018-03-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-10T15:46:37+08:00">
+                2018-07-10
               </time>
             
 
@@ -312,24 +312,42 @@
       
 
       
-        <p>学习Kotlin Koans时遇到了一个问题，如下</p>
-<blockquote>
-<p>Lazy property</p>
-<p><em>Add a custom getter to make the ‘lazy’ val really lazy. It should be initialized by the invocation of ‘initializer()’ at the moment of the first access.</em></p>
-<p><em>You can add as many additional properties as you need.</em></p>
-<p><em>Do not use delegated properties!</em></p>
-</blockquote>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LazyProperty</span></span>(<span class="keyword">val</span> initializer: () -&gt; <span class="built_in">Int</span>) &#123;</span><br><span class="line">     </span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> lazy: <span class="built_in">Int</span></span><br><span class="line">        <span class="keyword">get</span>() &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>语言基础太差，只能去抄答案。答案如下，还是看不懂。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LazyProperty</span></span>(<span class="keyword">val</span> initializer:()-&gt;<span class="built_in">Int</span>)&#123;</span><br><span class="line">    <span class="keyword">val</span> value:<span class="built_in">Int</span>?=<span class="literal">null</span></span><br><span class="line">    <span class="keyword">val</span> lazy:<span class="built_in">Int</span></span><br><span class="line">	    <span class="keyword">get</span>()&#123;</span><br><span class="line">            <span class="keyword">if</span>(value==<span class="literal">null</span>)&#123;</span><br><span class="line">                value=initializer()</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> value!!</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个其实是对Delegate中的延迟属性(lazy properties)的考察。</p>
-<p>所谓的延迟属性即为其值只会在首次访问时使用到的属性。所以上面的问题可以用下面的代码完成，当然暂时忽略其 <em>Do not use delegated properties!</em> 的要求。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class LazyProperty(val initializer: () -&gt; Int) &#123;</span><br><span class="line">    val lazyValue: Int by lazy(initializer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>让我们检查一下上面的代码，其中intializer具有<u>函数类型 () <a href="https://stackoverflow.com/questions/42646016/what-does-the-arrow-operator-do-in-kotlin/42646234" target="_blank" rel="noopener">-&gt;</a> Int</u></p>
-<p>所以，其应该是一个不带参数并且返回Int类型值的函数,同时又被LazyProperty类作为参数。由于lazy()是接受一个lambda并返回一个Lazy<t>实际例子的函数，返回的实例可以作为实现延迟属性的委托：第一次调用get()会执行已传递给lazy()的lambda表达式并记录结果，而后续调用get()只是返回记录的结果。</t></p>
-<p>再看一次答案</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LazyProperty</span></span>(<span class="keyword">val</span> initializer: () -&gt; <span class="built_in">Int</span>) &#123;</span><br><span class="line">     <span class="keyword">var</span> value:<span class="built_in">Int</span>? = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> lazy: <span class="built_in">Int</span></span><br><span class="line">        <span class="keyword">get</span>() &#123;</span><br><span class="line">            <span class="keyword">if</span> (value==<span class="literal">null</span>)&#123;</span><br><span class="line">                value = initializer()</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> value!!</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于 value 的初始值为 null，则 value=initializer() 得以执行，return value结合 get() 使 lazy 获得赋值。由于 value 类型为 Int? 而 lazy 为 Int ,所以需要用 <a href="https://www.kotlincn.net/docs/reference/null-safety.html#-%E6%93%8D%E4%BD%9C%E7%AC%A6" target="_blank" rel="noopener">!!</a> 做非空类型转换。而之后的value均为非空，lambda 不会再执行，从而实现了和 lazy() 一样的效果。</p>
+        <p>我们规定$m_i^t$ 为时间t位于位置i的物体数量，$f_{i,j}^t$表示时间t时位于位置i，时间t+1时位于位置j的物体数,。根据该定义：</p>
+<p>$\forall_{t,j} \sum\limits_{i:j\in N(i)}=m_j^t=\sum\limits_{k\in N(j)}f_{j,k}^t $</p>
+<p>对于一般的问题，我们可以做一些假设，例如我们不允许同一个地点存在两个物体。根据这个假设，对于给定的地点，我们可以设定出流上限，即：</p>
+<p>$\forall_{k,j}\sum\limits_{j\in N(k)}f_{k,j}^t\leq1$</p>
+<p>当然对于入流也是如此。此外，我们还可以知道，</p>
+<p>$\forall_{k,j,t}f_{k,j}^t\geq0$</p>
+<p>由于跟踪对象会进出跟踪区域，导致系统的总流量发生改变，为此，我们引入了两个特殊节点，$V_{source}$和$V_{sink}$ 与其它的进出节点均连接，除此之外，所有的流在第一帧的时候自$V_{source}$流出，在最后一帧流入$V_{sink}$。这两个节点均为虚拟节点，不表示物理位置，满足：</p>
+<p>$ \underbrace{\sum\limits_{j\in N(source)} f_{v_{source},j}^t}= \underbrace{\sum\limits_{j\in N(source)}f_{v_{source} j}^t}$</p>
+<p>我们用$M_i^t$ 表示i位置时间一个物体的存在与否，对任一物体，估计存在的后验概率为：</p>
+<p>$P_i^t=\hat{P}(M_i^t=1|I^t)$</p>
+<p>我们用$m={M_i^t}$表示物体位置的集合。当存在一个流集合满足上面我们定义的关系式，我们称m可行，定义$F$为可行图。则我们的问题转化为了求：</p>
+<p>$m^*=arg \max\limits_{m\in F}\hat{P}(M=m|I)$</p>
+<p>我们假设$M_i^t$条件独立，这个优化问题可以被重写为:</p>
+<p>$m^*=arg \max\limits_{m\in F}log\prod\limits_{t,i}\hat{P}(M_i^t=m_i^t|I^t)$</p>
+<p>$=arg \max\limits_{m\in F}\sum\limits_{t,i}log\hat{P}(M_i^t=m_i^t|I^t)$</p>
+<p>$=arg \max\limits_{m\in F}\sum\limits_{t,i}(1-m_i^t)log\hat{P}(M_i^t=0|I^t)+m_i^tlog\hat{P}(M_i^t=1|I^t)$</p>
+<p>$=arg \max\limits_{m\in F}\sum\limits_{t,i}log\frac{\hat{P}(M_i^t=1|I^t)}{\hat{P}(M_i^t=0|I^t)}$</p>
+<p>$=arg \max\limits_{m\in F}\sum\limits_{t,i}(log\frac{p_i^t}{1-p_i^t}m_i^t$</p>
+<p>可以转化为线型表达式</p>
+<p>$Maximize \sum\limits_{t,i}\log{\frac{p_i^t}{1-p_i^t}}\sum\limits_{j\in N(i)}f_{i,j}$</p>
+<p><em>subject to</em> $\forall_{t,i,j},f_i^j\geq0$</p>
+<p>$\forall_{t,i},\sum\limits_{j\in N(i)}f_{i,j}^t\leq1$</p>
+<p>$\forall_{t,i},\sum\limits_{j\in N(i)}f_{i,j}^t-\sum\limits_{k:i\in N(k)}f_{k,i}^{t-1}\leq0$</p>
+<p>$\sum\limits_{j\in N(V_{Source})}f_{v_{source},j}-\sum\limits_{k:V_{sink}\in N(k)}f_{k,v_{sink}}\leq0$</p>
+<p>可见我们已经将问题转化为了整数规划问题，但是由于问题规模巨大而且属于NP完全问题，对计算资源要求很高。</p>
+<p>这个问题有一个解决途径是转化为有向无环图中的k-最短路径问题。图是有向图且路径是都是节点分离的，两条不同的路径不共享节点且节点简单，且一条路径在途中访问任一节点至多一次。同时，一些边界位置直接与源节点和汇节点相连接。</p>
+<p>有向边$e_{i,j}^t$(表示在t时间位于地点i且t+1时间位于地点j的关系)被赋予损失值为$c(e_{i,j}^t)=-log(\frac{p_i^t}{1-p_i^t})$,放射自source node的边设定为0，以便物体自入口随时进入。</p>
+<p>(观察损失值可以看出，当概率大于0.5时，损失值为负数，因为我们要求最短路径，因此可以认为其思想为只要该点更可能发生，就让该点发生，同时设置源头点损失值为0是为了防止副作用，即先验情况下P=0.5)</p>
+<p>H表示线型表达式的可行解且满足（1）（2）（3）（4）设。</p>
+<p>从而我们所需要求得的问题为：</p>
+<p>$f^*=\arg\max\limits_{f\in H}\sum\limits_{t,i}c(e_{i,j}^t)\sum\limits_{j\in N(i)}f_{i,j}^t$</p>
+<p>令$p_i^<em>$为第i次迭代时的最短路径，$cost(P_l)=\sum\limits_{i=1}^{l}cost(p_i^</em>)$</p>
+<p> 找到k条最短路径后,$cost(p_{l+1})\geq cost(p_l)$,从而获得全局最小。</p>
+<p>所求的路径即为我们所需的轨迹。</p>
+<p>均参考此论文</p>
+<p>Multiple Object Tracking  Using K-Shortest Paths Optimization Je ́roˆme Berclaz, Franc ̧ois Fleuret, Engin Tu ̈retken, and Pascal Fua, Senior Member, IEEE </p>
 
       
     </div>
@@ -347,7 +365,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
+            <a href="/tags/tracking/" rel="tag"># tracking</a>
           
         </div>
       
@@ -360,8 +378,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/08/总要有第一次/" rel="next" title="总要有第一次">
-                <i class="fa fa-chevron-left"></i> 总要有第一次
+              <a href="/2018/07/10/Mac安装BGSlibrary库遇到的小问题/" rel="next" title="Mac安装BGSlibrary库遇到的小问题">
+                <i class="fa fa-chevron-left"></i> Mac安装BGSlibrary库遇到的小问题
               </a>
             
           </div>
@@ -369,10 +387,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/21/关于游戏的杂感/" rel="prev" title="关于游戏的杂感">
-                关于游戏的杂感 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
