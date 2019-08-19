@@ -244,6 +244,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://icicle314.xyz/2019/08/19/pose-estimation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ICICLE">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="呓语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/19/pose-estimation/" itemprop="url">2D多人姿势确认简介</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T21:47:27+08:00">
+                2019-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>​        <strong>多人姿势确认</strong> 的定义为从单张图片中推断出预先未知人数的人体关节位置，并确定其归属。2D姿势确认即从单张RGB照片中确定每个关节的(x, y)格式的坐标。</p>
+<h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><p>​        单人2D姿势确认只需要完成图片中关节位置的检测，而多人2D姿势确认不仅要给出关节的位置，而且要确定关节所属。此外，小且隐约可见的关节、遮挡、距离镜头远近不同的尺寸不同都是多人2D姿势确认要面临的挑战。</p>
+<h2 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h2><p>​        多人姿势确认的方法可以分为<strong>自上而下</strong>和<strong>自下而上</strong>两个流派。</p>
+<p>​        自上而下的方法首先使用人员检测器给出图片中各个人的边界框，然后在各个人的边界框内采用单人姿势确认器确认各个人的各个部位。</p>
+<p>​        自下而上的方法首先检测出图片中所有的部位，然后对属于不同的人的各个部位进行聚合或分组。</p>
+<p>​        一般而言，由于自上而下的方法要对检测出的每个边界框进行单人姿势确认，因此随着图片中人的数量上升，自上而下方法需要高昂的计算代价。而自下而上的方法由于损失了全局信息，没有直接使用来自其他身体部分和其他人的全局上下文线索，因此需要采用高消耗的全局推理。</p>
+<h3 id="自上而下"><a href="#自上而下" class="headerlink" title="自上而下"></a>自上而下</h3><p>​        由于自上而下的姿势确认方法首先根据特征确认人的边界框，之后再仅根据边界框内的特征给出关节的位置。因此，受到确认的边界框的精确度和尺度的影响。</p>
+<p>​        RMPE认为姿势确认的精确度同人员检测框的精确程度高度相关，因此设计出SSTN从不准确的边界框提取出高质量的单人区域，以获得更好的姿势确认结果。</p>
+<p>​        Cascaded Pyramid Network for Multi-Person Pose Estimation 发现难处理的关节点无法简单地通过外挂特征辨别，且在训练阶段未做出明确地定位，为此提出了级联金字塔网络结构，用GlobalNet学习基于特征金字塔的良好特征表示，Refinet通过在线难处理关键点的mining loss 处理难处理的关键点。</p>
+<p>​        Multi-Person Pose Estimation with Enhanced Channel-wise and Spatial Information 使用注意力机制动态地高级特征和低级特的优点，前者通过更大的视野域处理不可见或者被遮挡的关节，后者拥有更大的分辨率可以帮助确认关节点。</p>
+<h3 id="自下而上"><a href="#自下而上" class="headerlink" title="自下而上"></a>自下而上</h3><p>​        自下而上方法关注的重点在于如何对检测出的各个人的部位进行聚类或分组。</p>
+<p>​        DeepCut 将各个身体部位分组的问题转换为整数线性规划问题，对各个部位进行标记和聚类。</p>
+<p>​        Associate Embedding：End-to-End Learning for Joint Detection and Grouping 将联合聚类方法引入多人姿势确认，首先生成关节热力图和标签热力图，之后将标签相似的关节分组为独立的人。其同传统的自下而上的方法相比，检测阶段和分组阶段是同时进行的，避免了复杂的后续处理。</p>
+<p>​        OpenPose：Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields 提出了用PAF，即2D向量场编码肢体的位置和朝向来表示自下而上的聚合分数，并用贪婪算法完成推理节省计算时间。</p>
+<p>​    </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://icicle314.xyz/2018/07/10/轨迹追踪问题的可行解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1411,7 +1545,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1424,7 +1558,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1461,7 +1595,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
